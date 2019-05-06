@@ -1,13 +1,14 @@
 import org.openrndr.application
 import org.openrndr.color.ColorRGBa
+import org.openrndr.color.mix
 import org.openrndr.draw.FontImageMap
 import org.openrndr.draw.loadImage
 import org.openrndr.draw.tint
 
 fun main() = application {
     configure {
-        width = 768
-        height = 576
+        width = 1200
+        height = 600
     }
 
     program {
@@ -21,9 +22,17 @@ fun main() = application {
             drawer.fill = ColorRGBa.PINK
             drawer.circle(Math.cos(seconds)*width/2.0+width/2.0, Math.sin(0.5*seconds)*height/2.0 + height/2.0, 140.0)
 
+
+            val redCol = ColorRGBa.RED
+            val greenCol = ColorRGBa.GREEN
+
+            drawer.fill = mix(redCol, greenCol, (Math.cos(seconds) + 1) / 2.0);
+            drawer.rectangle(width / 2.0, height / 2.0, 50.0, 100.0);
+
+
             drawer.fontMap = font
             drawer.fill = ColorRGBa.WHITE
-            drawer.text("OPENRNDR", width/2.0, height /2.0)
+            drawer.text("" + seconds, width/2.0, height /2.0)
         }
     }
 }
