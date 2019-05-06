@@ -23,7 +23,7 @@ fun main() = application {
             drawer.circle(Math.cos(seconds)*width/2.0+width/2.0, Math.sin(0.5*seconds)*height/2.0 + height/2.0, 140.0)
 
 
-            val redCol = ColorRGBa.RED
+            val redCol = ColorRGBa.PINK
             val greenCol = ColorRGBa.GREEN
 
             drawer.fill = mix(redCol, greenCol, (Math.cos(seconds) + 1) / 2.0);
